@@ -18,7 +18,7 @@ export default function Footer() {
 
                     <div className={style.footerContact}>
                         {footerData.map((el, index) => (
-                            <div key={index} className={style.footerBlock}>
+                            <div key={index} >
                                 <p className={style.footerTitleBlock}>{el.title}</p>
 
                                 {el.data.map((el, index) => (
@@ -26,7 +26,7 @@ export default function Footer() {
                                 ))}
                             </div>
                         ))}
-                    </div>	
+                    </div>
                 </div>
             </div>
         </>

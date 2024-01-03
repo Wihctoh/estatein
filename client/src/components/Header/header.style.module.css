@@ -1,6 +1,6 @@
 .container {
     width: 100%;
-    max-width: 1950px;
+    max-width: 1624px;
     margin: 0 auto;
     padding: 20px 15px;
 
@@ -33,17 +33,36 @@ nav p {
     color: var(--Absolute-White, #fff);
     font: 500 18px Urbanist-Medium;
     line-height: 150%; /* 27px */
+    white-space: nowrap;
     cursor: pointer;
 }
 
 .contactBtn {
-    max-width: 136px;
-    width: 100%;
-    padding: 16px 0;
+    padding: 16px 24px;
+
+    color: var(--Absolute-White, #fff);
+    font: 500 18px Urbanist-Medium;
+    line-height: 150%; /* 27px */
 
     text-align: center;
     border-radius: 10px;
     border: 1px solid var(--Grey-15, #262626);
     background: var(--Grey-08, #141414);
+    transition: background-color 0.3s linear;
+    cursor: pointer;
+}
+
+.contactBtn:hover {
+    background-color: #703bf7;
+}
+
+.activeBtn {
+    width: 100%;
+    padding: 16px 24px;
+
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--Grey-15, #262626);
+    background-color: #703bf7;
     cursor: pointer;
 }

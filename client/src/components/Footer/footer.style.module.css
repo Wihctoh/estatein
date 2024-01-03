@@ -1,14 +1,13 @@
 .container {
-    width: 100%;
-    max-width: 1950px;
-    margin: 0 auto;
-    padding: 0 15px;
-
-    display: flex;
-    flex-direction: column;
+    background-color: #141414;
 }
 
 .wrapper {
+    width: 100%;
+    max-width: 1624px;
+    margin: 0 auto;
+    padding: 100px 15px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,17 +81,14 @@
     gap: 100px;
 }
 
-.footerContact .footerBlock {
-}
-
-.footerContact .footerBlock .footerTitleBlock {
+.footerContact .footerTitleBlock {
     color: var(--Grey-60, #999);
     font: 500 20px Urbanist-Medium;
     line-height: 24px; /* 120% */
     letter-spacing: -0.12px;
 }
 
-.footerContact .footerBlock p:not(:first-child) {
+.footerContact p:not(:first-child) {
     margin-top: 20px;
 
     display: flex;
