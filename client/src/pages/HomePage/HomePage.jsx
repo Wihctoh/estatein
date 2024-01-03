@@ -1,7 +1,11 @@
+import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 
-function HomePage() {
-    return <Header />;
+export default function HomePage() {
+    return (
+        <>
+            <Header />
+            <Footer />
+        </>
+    );
 }
-
-export default HomePage;
