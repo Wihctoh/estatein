@@ -1,0 +1,53 @@
+.container {
+    max-width: 1950px;
+    width: 100%;
+    margin: 25px auto;
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerLogo {
+    background: url(./assets/Logo.svg) no-repeat;
+    width: 150px;
+    height: 34.3px;
+    background-size: contain;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+
+    p {
+        color: #3d3d3d;
+        font-family: CeraPro-Regular;
+        font-size: 16px;
+    }
+}
+
+.shopBlock {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .loginBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        width: 100px;
+        padding: 8px 0;
+
+        border-radius: 6px;
+        background: #46a358;
+
+        p {
+            color: #fff;
+            font-family: CeraPro-Medium;
+            font-size: 16px;
+        }
+    }
+}

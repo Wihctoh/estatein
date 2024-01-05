@@ -1,34 +1,46 @@
-import style from "./footer.style.module.css";
-import { footerData } from "./footerData";
+import React from "react";
 
-export default function Footer() {
+import { PiPlantLight } from "react-icons/pi";
+
+import style from "./footer.style.module.scss";
+
+import { gardenNews } from "../../../data";
+
+const Footer = () => {
     return (
-        <>
-            <div className={style.container}>
-                <div className={style.wrapper}>
-                    <div className={style.footerForm}>
-                        <div className={style.footerLogo}></div>
-
-                        <div className={style.footerInput}>
-                            <div className={style.inputLogo}></div>
-                            <input type='text' placeholder='Enter Your Email' />
-                            <div className={style.inputSendImg}></div>
-                        </div>
-                    </div>
-
-                    <div className={style.footerContact}>
-                        {footerData.map((el, index) => (
-                            <div key={index} >
-                                <p className={style.footerTitleBlock}>{el.title}</p>
-
-                                {el.data.map((el, index) => (
-                                    <p key={index}>{el}</p>
-                                ))}
+        <div className={style.container}>
+            <div className={style.wrapper}>
+                <div className={style.gardenNewsBLock}>
+                    <div className={style.news}>
+                        {gardenNews.map(({ title, description }, index) => (
+                            <div key={index} className={style.elem}>
+                                <PiPlantLight size={64} />
+                                <h4>{title}</h4>
+                                <p>{description}</p>
                             </div>
                         ))}
                     </div>
+
+                    <div className={style.subscribe}>
+                        <h3> Would you like to join newsletters?</h3>
+                        <div className={style.inputField}>
+                            <input type='text' placeholder='enter your email address...' />
+                            <button>Join</button>
+                        </div>
+                        <p>
+                            We usually post offers and challenges in newsletter. We’re your online
+                            houseplant destination. We offer a wide range of houseplants and
+                            accessories shipped directly from our (green)house to yours!{" "}
+                        </p>
+                    </div>
                 </div>
+
+                <div className={style.contactBlock}></div>
+
+                <div className={style.linkBLock}></div>
             </div>
-        </>
+        </div>
     );
-}
+};
+
+export default Footer;

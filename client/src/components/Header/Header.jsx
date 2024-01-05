@@ -1,29 +1,31 @@
-import { useState } from "react";
-import style from "./header.style.module.css";
+import React from "react";
+import { IoLogInOutline, IoSearch, IoCartOutline } from "react-icons/io5";
 
-function Header() {
-    const [active, setActive] = useState(false);
+import style from "./header.style.module.scss";
 
-    function handleClick() {
-        setActive(!active);
-    }
-
+const Header = () => {
     return (
         <div className={style.container}>
-            <div className={style.wrapper}>
-                <div className={style.headerLogo}></div>
+            <div className={style.headerLogo}></div>
 
-                <nav onClick={handleClick}>
-                    <p className={active ? style.activeBtn : null}>Home</p>
-                    <p>About Us</p>
-                    <p>Properties</p>
-                    <p>Services</p>
-                </nav>
+            <nav>
+                <p>Home</p>
+                <p>Shop</p>
+                <p>Plant Care</p>
+                <p>Blogs</p>
+            </nav>
 
-                <div className={style.contactBtn}>Contact Us</div>
+            <div className={style.shopBlock}>
+                <IoSearch />
+                <IoCartOutline />
+
+                <div className={style.loginBtn}>
+                    <IoLogInOutline color='#fff' />
+                    <p>Login</p>
+                </div>
             </div>
         </div>
     );
-}
+};
 
 export default Header;

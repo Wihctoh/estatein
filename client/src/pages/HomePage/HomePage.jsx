@@ -1,11 +1,7 @@
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
+const HomePage = () => (
+    <div>
+        <h1>HomePage</h1>
+    </div>
+);
 
-export default function HomePage() {
-    return (
-        <>
-            <Header />
-            <Footer />
-        </>
-    );
-}
+export default HomePage;
