@@ -1,4 +1,3 @@
-import React from "react";
 import { IoLogInOutline, IoSearch, IoCartOutline } from "react-icons/io5";
 
 import style from "./header.style.module.scss";

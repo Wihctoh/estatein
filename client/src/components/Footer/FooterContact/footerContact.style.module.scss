@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    padding: 0 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(70, 163, 88, 0.1);
+}
+
+.wrapper {
+    max-width: 1950px;
+    width: 100%;
+    margin: 25px auto;
+}
+
+.contactBlock {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 80px;
+
+    .contactLogo {
+        background: url(../assets/Logo.svg) no-repeat;
+        width: 150px;
+        height: 34.3px;
+        background-size: contain;
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+
+        max-width: 200px;
+
+        p {
+            color: #3d3d3d;
+            font-family: CeraPro-Regular;
+            font-size: 14px;
+            line-height: 22px; /* 157.143% */
+        }
+    }
+}
