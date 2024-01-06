@@ -5,7 +5,7 @@ import HomePage from "../pages/HomePage/HomePage";
 const AppRoutes = () => (
     <div>
         <Routes>
-            <Route index element={<HomePage />} />
+            <Route path='/home' element={<HomePage />} />
         </Routes>
     </div>
 );

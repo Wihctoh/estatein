@@ -33,7 +33,22 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
 body {
     font-family: CeraPro-Regular;
     background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+
+    &:visited,
+    &:active,
+    &:link {
+        color: inherit;
+    }
 }

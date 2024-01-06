@@ -1,5 +1,3 @@
-// import style from "./footer.style.module.scss";
-
 import FooterNews from "./FooterNews/FooterNews";
 import FooterContact from "./FooterContact/FooterContact";
 import FooterLinks from "./FooterLinks/FooterLinks";
