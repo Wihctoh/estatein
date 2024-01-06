@@ -1,5 +1,8 @@
+import Categories from "../../components/Categories/Categories";
 import Recommend from "../../components/Recommend/Recommend";
 import style from "./homePage.style.module.scss";
+
+import { categories } from "../../../data";
 
 const HomePage = () => (
     <>
@@ -24,6 +27,8 @@ const HomePage = () => (
                 </div>
             </div>
         </div>
+
+        <Categories data={categories} />
 
         <Recommend />
     </>

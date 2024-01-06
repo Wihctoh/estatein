@@ -1,27 +1,37 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { IoLogInOutline, IoSearch, IoCartOutline } from "react-icons/io5";
 
 import style from "./header.style.module.scss";
 
 const Header = () => {
+    const activeLink = ({ isActive }) => (isActive ? style.activeBtn : null);
+
     return (
         <div className={style.container}>
-            <Link to='/home'>
+            <NavLink to='/home'>
                 <div className={style.headerLogo}></div>
-            </Link>
+            </NavLink>
 
             <nav>
                 <p>
-                    <Link to='/home'>Home</Link>
+                    <NavLink className={activeLink} to='/home'>
+                        Home
+                    </NavLink>
                 </p>
                 <p>
-                    <Link to='/shop'>Shop</Link>
+                    <NavLink className={activeLink} to='/shop'>
+                        Shop
+                    </NavLink>
                 </p>
                 <p>
-                    <Link to='/plant-care'>Plant Care</Link>
+                    <NavLink className={activeLink} to='/plant-care'>
+                        Plant Care
+                    </NavLink>
                 </p>
                 <p>
-                    <Link to='/blogs'>Blogs</Link>
+                    <NavLink className={activeLink} to='/blogs'>
+                        Blogs
+                    </NavLink>
                 </p>
             </nav>
 
@@ -33,7 +43,7 @@ const Header = () => {
                     <IoLogInOutline color='#fff' />
 
                     <p>
-                        <Link to='/login'>Login</Link>
+                        <NavLink to='/login'>Login</NavLink>
                     </p>
                 </div>
             </div>

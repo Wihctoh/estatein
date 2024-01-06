@@ -1,0 +1,32 @@
+.container {
+    max-width: 1230px;
+    padding: 0 15px;
+    margin: 25px auto;
+
+    display: flex;
+    align-items: flex-start;
+}
+
+.categoriesBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    max-width: 310px;
+    width: 100%;
+    padding: 24px;
+
+    background: #fbfbfb;
+
+    h3 {
+        color: #3d3d3d;
+        font-family: CeraPro-Bold;
+        font-size: 18px;
+        line-height: 16px; /* 88.889% */
+    }
+
+    .elem {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -50,3 +50,15 @@ export const recommendData = [
     { image: img4, title: "Bird's Nest Fern", price: "$99.00" },
     { image: img5, title: "Chinese Evergreen", price: "$39.00" },
 ];
+
+export const categories = [
+    { title: "House Plants", count: 33 },
+    { title: "Potter Plants", count: 12 },
+    { title: "Seeds", count: 65 },
+    { title: "Small Plants", count: 39 },
+    { title: "Big Plants", count: 23 },
+    { title: "Succulents", count: 17 },
+    { title: "Terrariums", count: 19 },
+    { title: "Gardening", count: 13 },
+    { title: "Accessories", count: 18 },
+];
