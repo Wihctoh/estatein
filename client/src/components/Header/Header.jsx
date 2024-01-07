@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoLogInOutline, IoSearch, IoCartOutline } from "react-icons/io5";
 
@@ -5,6 +6,7 @@ import style from "./header.style.module.scss";
 
 const Header = () => {
     const activeLink = ({ isActive }) => (isActive ? style.activeBtn : null);
+    const [visible, setVisible] = useState(false);
 
     return (
         <div className={style.container}>
@@ -36,7 +38,14 @@ const Header = () => {
             </nav>
 
             <div className={style.shopBlock}>
-                <IoSearch />
+                {visible && (
+                    <div className={style.search}>
+                        <input type='text' placeholder='Search...' />
+                        <IoSearch />
+                    </div>
+                )}
+                {!visible && <IoSearch onClick={() => setVisible(true)} />}
+
                 <IoCartOutline />
 
                 <div className={style.loginBtn}>
