@@ -1,14 +1,12 @@
-const bcrypt = require("bcrypt");
-
-const { getUserById } = require("./user.service");
+const checkPassword = require("../helper/checkPassword");
 const { createAccessToken } = require("../helper/jwt");
+const { getUserByEmailDB } = require("../repository/auth.repository");
 
-async function loginUser(id, email, password) {
-    const findUser = await getUserById(id);
-    const checkPassword = await bcrypt.compare(password, findUser.password);
-    if (!checkPassword) throw new Error("incorrect password");
+async function loginUser(email, password) {
+    const findUser = await getUserByEmailDB(email);
+    await checkPassword(password, findUser.password);
 
-    const accessToken = createAccessToken({ id, email });
+    const accessToken = createAccessToken({ email });
 
     return { accessToken };
 }
