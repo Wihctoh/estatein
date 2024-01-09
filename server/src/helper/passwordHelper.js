@@ -7,4 +7,11 @@ async function checkPassword(userPassword, dbPassword) {
     return checkPassword;
 }
 
-module.exports = checkPassword;
+async function hashPassword(userPassword, salt) {
+    const hash = await bcrypt.hash(userPassword, salt);
+    if (!hash) throw new Error("incorrect password");
+
+    return hash;
+}
+
+module.exports = { checkPassword, hashPassword };

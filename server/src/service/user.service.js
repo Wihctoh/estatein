@@ -1,8 +1,8 @@
-const bcrypt = require("bcrypt");
-
+const { checkPassword, hashPassword } = require("../helper/passwordHelper");
+const { createAccessToken } = require("../helper/jwt");
 const {
     getAllUsersDB,
-    getUserByIdDB,
+    getUserDB,
     createUserDB,
     updateUserDB,
     deleteUserDB,
@@ -10,38 +10,49 @@ const {
 
 async function getAllUsers() {
     const data = await getAllUsersDB();
-    if (data.length === 0) throw new Error("no have users");
+    if (!data.length) throw new Error("no have users");
 
     return data;
 }
 
-async function getUserById(id) {
-    const data = await getUserByIdDB(id);
-    if (data === null) throw new Error("no have user");
-
-    return data;
+async function getUser(email) {
+    return await getUserDB(email);
 }
 
 async function createUser(userData) {
+    const findUser = await getUser(userData.email);
+
+    if (findUser) throw new Error("user already exist");
     if (userData.password.length < 8) throw new Error("password must be more then 8 letters");
 
-    const hashPassword = await bcrypt.hash(userData.password, 1);
-    const data = await createUserDB({ ...userData, password: hashPassword });
+    const data = await createUserDB({
+        ...userData,
+        password: await hashPassword(userData.password, 1),
+    });
 
     return data;
 }
 
 async function updateUser(id, userData) {
-    const data = await updateUserDB(id, userData);
-
-    return data;
+    return await updateUserDB(id, userData);
 }
 
 async function deleteUser(id) {
     const data = await deleteUserDB(id);
-    if (data.deletedCount === 0) throw new Error("user not deleted");
+    if (!data.deletedCount) throw new Error("user can't deleted");
 
     return data;
 }
 
-module.exports = { getAllUsers, getUserById, createUser, updateUser, deleteUser };
+async function loginUser(email, password) {
+    const findUser = await getUser(email);
+    if (!findUser) throw new Error("no have user");
+
+    await checkPassword(password, findUser.password);
+
+    return {
+        accessToken: createAccessToken(JSON.stringify({ email, id: { ...findUser._doc }._id })),
+    };
+}
+
+module.exports = { getAllUsers, getUser, createUser, updateUser, deleteUser, loginUser };

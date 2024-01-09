@@ -1,22 +1,27 @@
 const router = require("express").Router();
 const { buildResponse } = require("../helper/buildResponse");
 
-const { getAllUsers, getUserById, createUser, updateUser, deleteUser } = require("../service/user.service");
+const {
+    getAllUsers,
+    getUser,
+    createUser,
+    updateUser,
+    deleteUser,
+    loginUser,
+} = require("../service/user.service");
 
 router.get("/", async (req, res) => {
     try {
-        const data = await getAllUsers();
-
-        buildResponse(res, 200, data);
+        buildResponse(res, 200, await getAllUsers());
     } catch (error) {
         buildResponse(res, 404, error.message);
     }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:email", async (req, res) => {
     try {
-        const { id } = req.params;
-        const data = await getUserById(id);
+        const { email } = req.params;
+        const data = await getUser(email);
 
         buildResponse(res, 200, data);
     } catch (error) {
@@ -53,6 +58,18 @@ router.delete("/:id", async (req, res) => {
         const data = await deleteUser(id);
 
         buildResponse(res, 200, data);
+    } catch (error) {
+        buildResponse(res, 404, error.message);
+    }
+});
+
+router.post("/login", async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const token = await loginUser(email, password);
+
+        res.cookie("accessToken", token, { httpOnly: false, secure: true });
+        buildResponse(res, 200, token);
     } catch (error) {
         buildResponse(res, 404, error.message);
     }

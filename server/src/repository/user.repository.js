@@ -4,8 +4,8 @@ async function getAllUsersDB() {
     return await user.find();
 }
 
-async function getUserByIdDB(id) {
-    return await user.findOne({ _id: new ObjectId(id) });
+async function getUserDB(email) {
+    return await user.findOne({ email });
 }
 
 async function createUserDB(userData) {
@@ -20,4 +20,4 @@ async function deleteUserDB(id) {
     return await user.deleteOne({ _id: new ObjectId(id) });
 }
 
-module.exports = { getAllUsersDB, getUserByIdDB, createUserDB, updateUserDB, deleteUserDB };
+module.exports = { getAllUsersDB, getUserDB, createUserDB, updateUserDB, deleteUserDB };
